@@ -1,0 +1,26 @@
+<h2>タスクの登録</h2>
+<%= form_with(model: @task, local: true ) do |form| %>
+  <% if @task.errors.any? %>
+
+      <h2><%= @task.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+
+  <% end %>
+      <%= form.label :タスク名 %>
+      <%= form.text_field :name %>
+      
+      <%= form.label :タスクの内容 %>
+      <%= form.text_field :content %>
+
+      <%= form.label :image %>
+      <%= form.file_field :image, id: :task_image %>
+      <%= form.hidden_field :image_cache %>
+  <%= form.submit %>
+<% end %>
+
+<%#= link_to "ブログ一覧画面にもどる", tasks_path %>

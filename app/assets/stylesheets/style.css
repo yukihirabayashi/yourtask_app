@@ -1,4 +1,4 @@
-.navbar-brand {
+.navbar-brand a {
   color: #ffffff;
 }
 
@@ -79,3 +79,4 @@ footer
     font-size: 12px;
   
 }
+
