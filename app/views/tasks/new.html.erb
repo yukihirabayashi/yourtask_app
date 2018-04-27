@@ -1,26 +1,42 @@
+<div class="container">
+<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+
 <h2>タスクの登録</h2>
 <%= form_with(model: @task, local: true ) do |form| %>
   <% if @task.errors.any? %>
-
-      <h2><%= @task.errors.count %>件のエラーがあります。</h2>
+    <h2><%= @task.errors.count %>件のエラーがあります。</h2>
       <ul>
-
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
-
   <% end %>
-      <%= form.label :タスク名 %>
-      <%= form.text_field :name %>
-      
-      <%= form.label :タスクの内容 %>
-      <%= form.text_field :content %>
+  <div class="row">
+  <p><%= form.label :タスク名 %></p>
+  <p><%= form.text_field :name, :placeholder => "例:洗濯しといて！！" %></p>
+<br>
+<br>
+  <p><%= form.label :タスクの内容 %></p>
+  <p><%= form.text_area :content %></p>
+<br>
+<br>
+  <p><%= form.label :image %></p>
+  <p><%= form.file_field :image, id: :task_image %></p>
+  <p><%= form.hidden_field :image_cache %></p>
+<br>
+<br>
+  <h2>リクエスト送る人</h2>
+   <p><label for="InputSelect"><%= form.radio_button :action_user_id, "1" %>松本</label></p>
+   <p><label for="InputSelect"><%= form.radio_button :action_user_id, "2" %>平林さん</label></p>
+  
+  <h2>期限</h2>
+  <p><%= form.text_field :deadline,:placeholder => "YYYY/MM/DD",class:"form-control" %></p>
+  
+<br>
+  <p><%= form.submit %></p>
 
-      <%= form.label :image %>
-      <%= form.file_field :image, id: :task_image %>
-      <%= form.hidden_field :image_cache %>
-  <%= form.submit %>
 <% end %>
+<p><%= link_to "タスク一覧画面にもどる", tasks_path %></p>
 
-<%#= link_to "ブログ一覧画面にもどる", tasks_path %>
+</div>
+</div>

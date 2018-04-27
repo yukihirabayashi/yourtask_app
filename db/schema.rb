@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20180421061627) do
     t.integer "action_user_id"
     t.text "content"
     t.datetime "deadline"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

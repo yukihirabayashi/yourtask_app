@@ -8,6 +8,7 @@ class AddTaskName < ActiveRecord::Migration[5.1]
       t.integer :action_user_id
       t.text :content
       t.datetime :deadline 
+      t.integer :user_id 
     end
   end
 

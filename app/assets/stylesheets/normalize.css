@@ -32,6 +32,11 @@ body {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  text-align:center
+}
+
+h2 {
+  text-align:center
 }
 
 /* Grouping content
@@ -139,6 +144,14 @@ sup {
 
 img {
   border-style: none;
+  width:100px;
+  height:100px;
+  object-fit: cover; 
+}
+
+p{
+  text-align:center
+}
 }
 
 /* Forms

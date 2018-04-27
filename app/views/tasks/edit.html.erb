@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+
+<h2>タスクの登録</h2>
+<%= form_with(model: @task, local: true ) do |form| %>
+  <% if @task.errors.any? %>
+
+      <h2><%= @task.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+
+  <% end %>
+      <%= form.label :タスク名 %>
+      <%= form.text_field :name, class: 'form-control' %>
+      
+      <%= form.label :タスクの内容 %>
+      <%= form.text_field :content, class: 'form-control' %>
+
+      <%= form.label :image %>
+      <%= form.file_field :image, id: :task_image %>
+      <%= form.hidden_field :image_cache %>
+      
+      <h2>リクエスト送る人</h2>
+      <label><%= form.radio_button :action_user_id, "2" %>松本</label>
+      <label><%= form.radio_button :action_user_id, "3" %>平林さん</label>
+
+<br>
+<br>
+  <%= form.submit %>
+<% end %>
+<br>
+<br>
+<%= link_to "タスク一覧画面にもどる", tasks_path %>
+
+</div>
+</div>
