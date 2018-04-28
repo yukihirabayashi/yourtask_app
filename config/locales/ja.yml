@@ -193,12 +193,13 @@ ja:
         delimiter: ''
   support:
     array:
-      last_word_connector: 、
-      two_words_connector: 、
-      words_connector: 、
+      last_word_connector: と
+      two_words_connector: と
+      words_connector: と
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
-      long: "%Y/%m/%d %H:%M"
-      short: "%m/%d %H:%M"
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      short: "%y/%m/%d %H:%M"
+    pm: 午後

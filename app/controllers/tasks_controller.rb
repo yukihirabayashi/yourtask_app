@@ -2,7 +2,6 @@ class TasksController < ApplicationController
 
   def index
      @tasks = Task.all
-     @t = Task.where(action_user_id:current_user.id)
   end   
 
   def new
@@ -15,7 +14,8 @@ class TasksController < ApplicationController
   
   def update
     @task = Task.find(params[:id])
-      if@task.update(task_params)
+      if
+        @task.update(task_params)
         redirect_to tasks_path, notice:"タスクを編集しました！"
       else
         render 'edit'

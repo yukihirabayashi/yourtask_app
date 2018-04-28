@@ -12,31 +12,40 @@
       </ul>
   <% end %>
   <div class="row">
-  <p><%= form.label :タスク名 %></p>
-  <p><%= form.text_field :name, :placeholder => "例:洗濯しといて！！" %></p>
+  <%= form.label :タスク名 %>
+  <%= form.text_field :name, class:"form-control", :placeholder => "例:洗濯しといて！！" %>
 <br>
 <br>
-  <p><%= form.label :タスクの内容 %></p>
-  <p><%= form.text_area :content %></p>
+  <%= form.label :タスクの内容 %>
+  <%= form.text_area :content, class:"form-control" %>
 <br>
 <br>
-  <p><%= form.label :image %></p>
-  <p><%= form.file_field :image, id: :task_image %></p>
-  <p><%= form.hidden_field :image_cache %></p>
+<table>
+  <%= form.label :参考資料 %>
+  <%= form.file_field :image, id: :task_image, class:"form-control" %>
+  <%= form.hidden_field :image_cache, class:"form-control" %>
+</table>
 <br>
 <br>
   <h2>リクエスト送る人</h2>
-   <p><label for="InputSelect"><%= form.radio_button :action_user_id, "1" %>松本</label></p>
-   <p><label for="InputSelect"><%= form.radio_button :action_user_id, "2" %>平林さん</label></p>
-  
+  <center>
+    <table>
+      <% unless current_user.id == 1 %>
+       <label for="InputSelect"><%= form.radio_button :action_user_id, "1", class:"form-control" %>テスト君</label>
+      <%else %>
+       <label for="InputSelect"><%= form.radio_button :action_user_id, "2", class:"form-control" %>平林</label>
+    <%end%>
+    </table>
+  </center>
   <h2>期限</h2>
-  <p><%= form.text_field :deadline,:placeholder => "YYYY/MM/DD",class:"form-control" %></p>
+  <p><%= form.date_field :deadline,:placeholder => "YYYY/MM/DD",class:"form-control" %></p>
   
 <br>
-  <p><%= form.submit %></p>
+  <p><%= form.submit '依頼する', class: 'btn btn-primary btn-block' %></p>
 
 <% end %>
 <p><%= link_to "タスク一覧画面にもどる", tasks_path %></p>
-
+<br>
+<br>
 </div>
 </div>

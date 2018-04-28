@@ -80,3 +80,9 @@ footer
   
 }
 
+
+/* labelとradioボタン or labelが隣り合ってる場合にradio or labelの左に余白を付ける */
+label + input[type="radio"],
+label + label {
+    margin-left: 8em;
+}
