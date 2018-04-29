@@ -1,11 +1,16 @@
 class TasksController < ApplicationController
+before_action :authenticate_user!
 
   def index
-     @tasks = Task.all
-  end   
+    @tasks = Task.all
+    @users = User.all
+  end
+     
 
   def new
      @task = Task.new
+     @users = User.all
+     @tasks = Task.all
   end
   
   def edit
@@ -27,8 +32,12 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.request_user_id = current_user.id
     @task.user_id = current_user.id
-    @task.save
-    redirect_to tasks_path,  notice: "タスクを作成しました！"
+    
+    if @task.save
+      redirect_to tasks_path, notice: "タスクを作成しました！"
+      else
+      redirect_to new_task_path
+    end
   end
   
   def destroy
@@ -39,6 +48,6 @@ class TasksController < ApplicationController
   private
   
   def task_params
-    params.require(:task).permit(:name, :status, :content, :image, :request_user_id, :action_user_id, :deadline)
+    params.require(:task).permit(:name, :status, :content, :image, :image_cache, :request_user_id, :action_user_id, :deadline)
   end
 end

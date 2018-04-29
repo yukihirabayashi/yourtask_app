@@ -74,3 +74,7 @@ gem 'omniauth-twitter'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.3'
 gem 'rails-assets-tether', '>= 1.1.0'
+
+group :production do
+  gem 'rails_12factor'
+end

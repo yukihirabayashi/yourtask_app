@@ -1,50 +1,54 @@
 <div class="container">
-<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+	<div class="col-md-12" "col-sm6">
 
-<%= form_with(model: @task, local: true ) do |form| %>
-  <% if @task.errors.any? %>
-    <h2><%= @task.errors.count %>件のエラーがあります。</h2>
-      <ul>
-        <% @task.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-  <% end %>
-  <div class="row">
-  <%= form.label :タスク名 %>
-  <%= form.text_field :name, class:"form-control", :placeholder => "例:洗濯しといて！！" %>
-<br>
-<br>
-  <%= form.label :タスクの内容 %>
-  <%= form.text_area :content, class:"form-control" %>
-<br>
-<br>
-<table>
-  <%= form.label :参考資料 %>
-  <%= form.file_field :image, id: :task_image, class:"form-control" %>
-  <%= form.hidden_field :image_cache, class:"form-control" %>
-</table>
-<br>
-<br>
-  <h2>リクエスト送る人</h2>
+<h4>タスクを登録する</h4>
+
+      <div class="row">
+
+              <%= form_with(model: @task, local: true ) do |form| %>
+          		<% if @task.errors.any? %>
+               	 <h2><%= @task.errors.count %>件のエラーがあります。</h2>
+            	  <ul>
+              		<% @task.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                     <% end %>
+                    </ul> 
+                 <% end %>
+
+
+     	    <%= form.label :タスクの内容 %>
+        	<%= form.text_area :content, class:"form-control" %>
+        	<br>
+          <%#= form.label :参考資料 %>
+          <%#= form.file_field :image, id: :task_image, class:"form-control" %>
+         	<%#= form.hidden_field :image_cache, class:"form-control" %>
+         
+         	<h4>期限</h4><%= form.date_field :deadline,:placeholder => "YYYY/MM/DD",class:"form-control" %>
+  
+    
+ <br>
   <center>
     <table>
       <% unless current_user.id == 1 %>
-       <label for="InputSelect"><%= form.radio_button :action_user_id, "1", class:"form-control" %>テスト君</label>
-      <%else %>
-       <label for="InputSelect"><%= form.radio_button :action_user_id, "2", class:"form-control" %>平林</label>
+       <label for="InputSelect"><%= form.radio_button :action_user_id, "1", class:"form-control" %>オット</label>
+      <% else %>
+       <label for="InputSelect"><%= form.radio_button :action_user_id, "2", class:"form-control" %>ツマ</label>
     <%end%>
+    
     </table>
   </center>
-  <h2>期限</h2>
-  <p><%= form.date_field :deadline,:placeholder => "YYYY/MM/DD",class:"form-control" %></p>
-  
-<br>
   <p><%= form.submit '依頼する', class: 'btn btn-primary btn-block' %></p>
 
-<% end %>
+   <% end %>
+    
+    </div>
+    
 <p><%= link_to "タスク一覧画面にもどる", tasks_path %></p>
+  
+ 
+  
+  <br>
 <br>
-<br>
-</div>
+
+  </div>
 </div>

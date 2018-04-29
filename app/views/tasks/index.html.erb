@@ -1,42 +1,47 @@
 <div class="container">
-<div class="col-md-12">
+<div class="col-md-12" "col-sm6">
 
-<h1>タスク一覧</h1>
+<h5>タスク一覧</h5>
 <p><%= notice %></p>
-<table class="table table-bordered">
-  <thead>
+
+
+<table class="table table-striped">
+
   <tr>
-    <th>依頼主</th>
-    <th>タスク</th>
+    <th>誰のタスク？</th>
     <th>内容</th>
     <th>期限</th>
-    <th>画像</th>
-    <th>タスク実行者</th>
+    <th>status</th>
+    <th>maru</th>
+    <th>maru</th>
   </tr>
-  </thead>
-  <tbody>
+
     <% @tasks.each do |task| %>
-    <tr style="height:48px;">
-    <td style="width:100px;"><%= task.user.name %></td>
-       <td style="width:100px;"><%= task.name %></td>
-        <td><%= task.content %></td>
-        <td style="width:100px;"><%= task.deadline %></td>
-        <td style="width:140px;"><%= image_tag(task.image) %></td>
-       <% t = task.action_user_id %>
-        <% action_user = User.find_by(id:t) %>
-        <td style="width:100px;"><%= action_user.name %></td>
-       
-         <td style="width:100px;"><%= link_to "編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %></td>
-         <td style="width:100px;"><%= link_to "完了", task_path(task.id), method: :delete, data: { confirm: '本当に完了していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %></td>
-        
-    </td>
-      </tr>
+  <tr> 
+    <td><%= task.user&.name %></td>
+    <td><%= task.content %></td>
+    <td><%= task.deadline %></td>
+    <td><%= task.deadline %></td>
+     <td><% if @users.find(1) == current_user %>         
+                <td><%= link_to "編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %>
+              <% elsif user_signed_in? %>
+               <td><%= link_to "編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %><br>
+                <%= link_to "完了", task_path(task.id), method: :delete, data: { confirm: '本当に完了していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+                 </td>
+  </tr>
+              
+            <% end %>
+      
     <% end %>
-    <tbody>
-  </table>
 
-
+  </table> 
 
   
 </div>
 </div>
+
+        <%#= image_tag(task.image) %>
+
+       <%# t = task.action_user_id %>
+          <%# action_user = @users.find(t) %>
+          <%#= action_user.name %>
