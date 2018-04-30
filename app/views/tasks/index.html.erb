@@ -45,11 +45,8 @@
 
     
     <td>
-            <%#= image_tag(task.image) %>
-
-       <%# t = task.action_user_id %>
-          <%# action_user = @users.find(t) %>
-          <%#= action_user.name %>
+            <%= image_tag(task.image) %>
+            <%= task.user&.name %>
       
       </td>
     </tr>            
