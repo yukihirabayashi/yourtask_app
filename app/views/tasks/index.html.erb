@@ -29,8 +29,6 @@
     <td><%= task.content %></td>
     <td><%= task.deadline %></td>
 
-    <% t = task.action_user_id %>
-
     <td><% if task.request_user_id == current_user %>
     <%= link_to "タスク完了", task_path(task.id), method: :delete, data: { confirm: '本当に完了していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
     <%= link_to "タスク編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %>
