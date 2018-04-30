@@ -31,6 +31,11 @@ before_action :authenticate_user!
   def create
     @task = Task.new(task_params)
     @task.request_user_id = current_user.id
+    if @task.request_user_id == 1
+    @task.action_user_id = 2
+    else
+      @task.action_user_id = 1
+    end
     @task.user_id = current_user.id
     
     if @task.save

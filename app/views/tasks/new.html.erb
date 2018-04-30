@@ -29,16 +29,7 @@
 
 
     <br>
-  <center>
-    <table>
-        <% unless current_user.id == 1 %>
-            <label for="InputSelect"><%= form.radio_button :action_user_id, "1", class:"form-control" %>オット</label>
-        <% else %>
-           <label for="InputSelect"><%= form.radio_button :action_user_id, "2", class:"form-control" %>ツマ</label>
-        <% end %>
-    
-    </table>
-  </center>
+  
   <p><%= form.submit '依頼する', class: 'btn btn-primary btn-block' %></p>
 
    <% end %>
