@@ -19,9 +19,9 @@
      	    <%= form.label :タスクの内容 %>
         	<%= form.text_area :content, class:"form-control" %>
         	<br>
-                <%#= form.label :参考資料 %>
-                <%#= form.file_field :image, id: :task_image, class:"form-control" %>
-                <%#= form.hidden_field :image_cache, class:"form-control" %>
+                <%= form.label :参考資料 %>
+                <%= form.file_field :image, id: :task_image, class:"form-control" %>
+                <%= form.hidden_field :image_cache, class:"form-control" %>
          
          	<%#= form.date_field :deadline,:placeholder => "YYYY/MM/DD",class:"form-control" %>
          	<h5>期限</h5><%= form.date_select :deadline,:placeholder => "YYYY/MM/DD",class:"form-control" %>

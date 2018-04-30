@@ -13,14 +13,15 @@
     <th>期限</th>
     <th>status</th>
     <th>maru</th>
+    <th>参考資料</th>
   </tr>
 
     <% @tasks.each do |task| %>
   <tr> 
     <td><% if task.user.name == 'test君' %>
-          平林さん
-        <% else task.user.name == '平林さん' %>
-          テスト君
+          ツマ
+        <% else task.user.name == 'ひらりん' %>
+          オット
         <% end %></td>
     <td><%= task.content %></td>
     <td><%= task.deadline %></td>
@@ -31,9 +32,9 @@
     <% end %></td>
     
     <td><% unless task.request_user_id == current_user.id %>
-    <%= link_to "完了", task_path(task.id), method: :delete, data: { confirm: '本当に完了していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+    <%= link_to "タスク完了", task_path(task.id), method: :delete, data: { confirm: '本当に完了していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
     <% else %>
-    <%= link_to "編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %>
+    <%= link_to "タスク編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %>
     <% end %></td>
     
     
@@ -43,13 +44,19 @@
       
     </tr>            
     <% end %>
-  </table> 
-</div>
-</div>
-
-        <%#= image_tag(task.image) %>
+    
+    <td>
+            <%#= image_tag(task.image) %>
 
        <%# t = task.action_user_id %>
           <%# action_user = @users.find(t) %>
           <%#= action_user.name %>
+      
+      </td>
+    
+  </table> 
+</div>
+</div>
+
+  
    
