@@ -13,8 +13,7 @@
     <th>やる人</th>
     <th>内容</th>
     <th>期限</th>
-    <th>status</th>
-    <th>maru</th>
+    <th>ステータス</th>
     <th>参考資料</th>
   </tr>
 
@@ -27,24 +26,12 @@
         <% end %></td>
     <td><%= task.content %></td>
     <td><%= task.deadline %></td>
-    <td><% if task.status == true %>
-       完了だよ！
-　　<% else %>
-       未完了だよ！
-    <% end %></td>
-    
+
     <td><% unless task.request_user_id == current_user.id %>
     <%= link_to "タスク完了", task_path(task.id), method: :delete, data: { confirm: '本当に完了していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
     <% else %>
     <%= link_to "タスク編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %>
     <% end %></td>
-    
-    
-       
-
-      
-      
-
     
     <td>
             <%= image_tag(task.image) %>
@@ -54,6 +41,10 @@
     </tr>            
     <% end %>    
   </table> 
+  
+  
+  
+  
 </div>
 </div>
 
