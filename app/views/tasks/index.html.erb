@@ -19,11 +19,13 @@
 
     <% @tasks.each do |task| %>
   <tr> 
-    <td><% if task.user.name == 'test君' %>
+    <td><% if task.user.name == 'テスト君' %>
           ツマ
         <% else task.user.name == 'ひらりん' %>
           オット
-        <% end %></td>
+        <% end %>
+        
+        </td>
     <td><%= task.content %></td>
     <td><%= task.deadline %></td>
 
