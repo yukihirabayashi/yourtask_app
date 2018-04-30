@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180421061627) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.string "status"
+    t.boolean "status"
     t.string "image"
     t.integer "request_user_id"
     t.integer "action_user_id"

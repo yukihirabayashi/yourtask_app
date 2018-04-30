@@ -13,38 +13,37 @@
     <th>期限</th>
     <th>status</th>
     <th>maru</th>
-    <th>maru</th>
   </tr>
 
     <% @tasks.each do |task| %>
   <tr> 
-    <td><%= task.user&.name %></td>
+    <td><% if task.user.name == 'test君' %>
+          平林さん
+        <% else task.user.name == '平林さん' %>
+          テスト君
+        <% end %></td>
     <td><%= task.content %></td>
     <td><%= task.deadline %></td>
+    <td><% if task.status == true %>
+       完了だよ！
+　　<% else %>
+       未完了だよ！
+    <% end %></td>
     
+    <td><% unless task.request_user_id == current_user.id %>
+    <%= link_to "完了", task_path(task.id), method: :delete, data: { confirm: '本当に完了していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+    <% else %>
+    <%= link_to "編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %>
+    <% end %></td>
+    
+    
+       
 
-    
-    
-    
-    <td><%= task.deadline %></td>
-     <td><% if @users.find(1) == current_user %>         
-                <td><%= link_to "編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %>
-              <% elsif user_signed_in? %>
-               <td><%= link_to "編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %><br>
-                <%= link_to "完了", task_path(task.id), method: :delete, data: { confirm: '本当に完了していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
-                 </td>
-
-
+      
+      
     </tr>            
-            <% end %>
-      
-  
-      
     <% end %>
-
   </table> 
-
-  
 </div>
 </div>
 
