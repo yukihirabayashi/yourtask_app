@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   
   resources :tasks
-  root to: "tasks#index"
+#  root to: "tasks#index"
 
   devise_for :users
   # if Rails.env.development?
