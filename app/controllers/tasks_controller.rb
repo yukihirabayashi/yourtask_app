@@ -11,6 +11,7 @@ before_action :authenticate_user!
      @task = Task.new
      @users = User.all
      @tasks = Task.all
+
   end
   
   def edit
