@@ -66,10 +66,10 @@ body{
 }
 
 /* ヘッダーの固定 */
-head
-{
+head {
   	background-color:#eedcb3;     
-/*    position: fixed;            /* ヘッダーの固定 */
+  /*	background-color:#ff69b4;  */   
+/*    position: fixed;  */          /* ヘッダーの固定 */
     top: 0px;                   /* 位置(上0px) */
     left: 5px;                  /* 位置(左0px) */
     right:5px;                  /* 位置(右0px) */
@@ -90,9 +90,10 @@ head
 }
 
 /* フッターの固定 */
-footer
-{
+footer {
   	background-color:#eedcb3;     
+  /*	background-color:#e9967a;  */   
+
     position: fixed;            /* フッターの固定 */
     bottom: 0px;                /* 位置(下0px) */
     left: 0px;                  /* 位置(左0px) */
@@ -106,8 +107,8 @@ footer
 }
 
 
-/* labelとradioボタン or labelが隣り合ってる場合にradio or labelの左に余白を付ける */
+/* labelとradioボタン or labelが隣り合ってる場合にradio or labelの左に余白を付ける
 label + input[type="radio"],
 label + label {
     margin-left: 8em;
-}
+}  

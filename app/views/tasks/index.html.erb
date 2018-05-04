@@ -39,12 +39,14 @@
     </td>
     
     <td>
-            <%= image_tag(task.image) %>
+            <%= image_tag(task.image.url) %>
             <%= task.user&.name %>
       
     </td>
   </tr>            
     <% end %>    
+    
+    
   </table> 
   
   
