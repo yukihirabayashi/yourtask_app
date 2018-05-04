@@ -5,6 +5,7 @@ class Task < ApplicationRecord
     
     
     validates :content, presence: true
+    validates :content,    length: { maximum: 75 }      # 「75文字以下」
     
     mount_uploader :image, ImageUploader
     

@@ -41,7 +41,7 @@
         </ul>
 			
 			<p class="navbar-text navbar-right">ようこそ
-			    <% if user_signed_in? %>
+			    <% if user_signed_in? %><%# binding.pry %>
   			      <class="navbar-link"><%= current_user.name %></a>さん</p>
   			     <% else %>
   			      <class="navbar-link"><font color="#ffffff>ゲスト</font></a>さん</p>
