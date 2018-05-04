@@ -10,7 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
 
-  # process :resize_to_limit => [50, 50] # 画像サイズの調整
+  #process :resize_to_limit => [50, 50] # 画像サイズの調整
   
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
