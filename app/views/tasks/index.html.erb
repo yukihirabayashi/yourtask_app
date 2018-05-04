@@ -19,19 +19,13 @@
 
     <% @tasks.each do |task| %>
   <tr> 
-<<<<<<< HEAD
     <td><% if task.user.name == 'オット' %>
           ツマ
         <% else task.user.name == 'ツマ' %>
-=======
-    <td><% if task.user.name == "テスト君" %>
-          ツマ
-        <% else task.user.name == "ひらりん" %>
->>>>>>> 7ed02c51621ca5efbbb80ef3f28784e939c1c1c2
           オット
         <% end %>
-        
-        </td>
+    </td>
+    
     <td><%= task.content %></td>
     <td><%= task.deadline %></td>
 
@@ -39,8 +33,7 @@
       <%= link_to "タスク完了", task_path(task.id), method: :delete, data: { confirm: '本当に完了していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
       <%= link_to "タスク編集", edit_task_path(task.id), class: 'btn btn-default btn-sm btn-success' %>
     <% end %>
-    
-    
+
     
     </td>
     
