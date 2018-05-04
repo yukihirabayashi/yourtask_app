@@ -41,6 +41,7 @@ before_action :authenticate_user!
     
     if @task.save
       redirect_to tasks_path, notice: "タスクを作成しました！"
+       ContactMailer.contact_mail(@task).deliver
       else
       redirect_to new_task_path
     end
