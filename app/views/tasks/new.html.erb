@@ -1,3 +1,14 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <div class="container">
 
 
@@ -6,15 +17,19 @@
       <div class="row">
           	<div class="col-md-12" "col-sm6">
 
-        <%= form_with(model: @task, local: true ) do |form| %>
-          		<% if @task.errors.any? %>
-               	 <h2><%= @task.errors.count %>件のエラーがあります。</h2>
-            	  <ul>
-              		<% @task.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                     <% end %>
-                    </ul> 
-                 <% end %>
+<%= form_with(model: @task, local: true ) do |form| %>
+
+  <% if @task.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+        
+      <h2><%= @task.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
      	    <%= form.label :タスクの内容 %>
@@ -28,20 +43,16 @@
          	<h5>期限</h5><%= form.date_select :deadline,:placeholder => "YYYY/MM/DD",class:"form-control" %>
   
 
-
     <br>
   
   <p><%= form.submit '依頼する', class: 'btn btn-primary btn-block' %></p>
 
-   <% end %>
+<% end %>
     
     </div>
     
     <p><%= link_to "タスク一覧画面にもどる", tasks_path %></p>
-            <%#= form_for %>
-                 <%#= f.label :"ステータス" %><br>
-                 <%#= f.select :status, [["国語", "国語"]] ,class:"form-control" %>
-            <%# end %>
+
 
   </div>
 </div>
