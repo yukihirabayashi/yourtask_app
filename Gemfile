@@ -77,6 +77,7 @@ gem 'rails-assets-tether', '>= 1.1.0'
 
 group :production do
   gem 'rails_12factor'
+  gem 'letter_opener_web'
 end
 
 gem 'omniauth-line'
