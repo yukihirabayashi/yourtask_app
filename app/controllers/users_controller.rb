@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
     def new
         @user = User.new
-        @request_user_id = current_user 
     end
  
     def show
