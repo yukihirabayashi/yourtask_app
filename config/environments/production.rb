@@ -101,9 +101,7 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true
   }
-  
-  config.action_mailer.default_url_options = { host: 'sheltered-coast-49617.herokuapp.com:8080/' }
-  config.action_mailer.delivery_method = :letter_opener
+
   
 end
 
