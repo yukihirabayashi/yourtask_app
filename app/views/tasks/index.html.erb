@@ -20,9 +20,9 @@
     <% @tasks.each do |task| %>
   <tr> 
     <td><% if task.user.name == 'オット' %>
-          ツマ
+          <%= image_tag('pen_sikaku.png') %>
         <% else task.user.name == 'ツマ' %>
-          オット
+          <%= image_tag('sirokuma.png') %>
         <% end %>
     </td>
     
