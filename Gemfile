@@ -78,3 +78,5 @@ gem 'rails-assets-tether', '>= 1.1.0'
 group :production do
   gem 'rails_12factor'
 end
+
+gem 'omniauth-line'
